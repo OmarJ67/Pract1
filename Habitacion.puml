@@ -1,0 +1,50 @@
+@startuml Habitacion
+
+class Habitacion {
+    - numero: int
+    - precioPorNoche: double
+    + Habitacion(numero: int, precioPorNoche: double)
+    + getNumero(): int
+    + getPrecioPorNoche(): double
+    + setNumero(numero: int): void
+    + setPrecioPorNoche(precioPorNoche: double): void
+    + calcularTotal(numeroDeNoches: int): double
+    + mostrarInformacion(): void
+}
+
+class HabitacionDoble {
+    - numeroDeCamas: int
+    + HabitacionDoble(numero: int, precioPorNoche: double, numeroDeCamas: int)
+    + getNumeroDeCamas(): int
+    + mostrarInformacion(): void
+}
+
+class HabitacionFamiliar {
+    - tieneSala: boolean
+    - tieneBañoCompleto: boolean
+    + HabitacionFamiliar(numero: int, precioPorNoche: double, tieneSala: boolean, tieneBañoCompleto: boolean)
+    + tieneSala(): boolean
+    + tieneBañoCompleto(): boolean
+    + mostrarInformacion(): void
+}
+
+class HabitacionIndividual {
+    - tieneVistaAlMar: boolean
+    + HabitacionIndividual(numero: int, precioPorNoche: double, tieneVistaAlMar: boolean)
+    + tieneVistaAlMar(): boolean
+    + mostrarInformacion(): void
+}
+
+class HabitacionSuite {
+    - roomService: boolean
+    + HabitacionSuite(numero: int, precioPorNoche: double, roomService: boolean)
+    + roomService(): boolean
+    + mostrarInformacion(): void
+}
+
+Habitacion <|-- HabitacionDoble
+Habitacion <|-- HabitacionFamiliar
+Habitacion <|-- HabitacionIndividual
+Habitacion <|-- HabitacionSuite
+
+@enduml
